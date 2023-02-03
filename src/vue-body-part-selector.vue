@@ -348,6 +348,57 @@ export default /*#__PURE__*/{
           'back-left': true,
           'clavicule-left': true,
         }
+      },
+    },
+    partsColour: {
+      type: Object,
+      default: () => { 
+        return {
+          'head': null,
+          'face': null,
+          'neck': null,
+          'shoulder-left': null,
+          'shoulder-right': null,
+          'arm-left': null,
+          'forearm-left': null,
+          'arm-right': null,
+          'forearm-right': null,
+          'chest-left': null,
+          'chest-right': null,
+          'belly-left': null,
+          'ribs-left': null,
+          'belly-right': null,
+          'belly': null,
+          'ribs-right': null,
+          'thigh-left': null,
+          'innerthigh-left': null,
+          'feet-left': null,
+          'calf-left': null,
+          'knee-left': null,
+          'thigh-right': null,
+          'genitalia': null,
+          'innerthigh-right': null,
+          'right-feet': null,
+          'calf-right': null,
+          'knee-right': null,
+          'elbow-right': null,
+          'hand-right': null,
+          'elbow-left': null,
+          'hands-left': null,
+          'armback-left': null,
+          'leg-left': null,
+          'buttock': null,
+          'loin': null,
+          'column': null,
+          'head-back': null,
+          'nape': null,
+          'armback-right': null,
+          'leg-right': null,
+          'back-right': null,
+          'clavicule-right': null,
+          'back-left': null,
+          'clavicule-left': null,
+        }
       }
     },
     // TODO:
@@ -429,6 +480,9 @@ export default /*#__PURE__*/{
       }
       if(this.multiple && this.selection.includes(partName) || this.selection === partName){
         styles.fill = this.selectionColour
+      }
+      if(Object.keys(this.partsColour).includes(partName) && this.partsColour[partName] != null){
+        styles.fill = this.partsColour[partName]
       }
       return styles
     }
